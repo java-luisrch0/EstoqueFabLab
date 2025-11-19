@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping
 @RestController
 public class CompraControllers {
     @Autowired
@@ -42,8 +44,5 @@ public class CompraControllers {
         return cs.salvar(compra);
     }
 
-    @PostMapping("/cadastro")
-    public Agenda salvar(@RequestBody Agenda agenda) {
-        return as.salvar(agenda);
-    }
+
 }

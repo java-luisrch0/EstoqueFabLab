@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping
 @RestController
 public class AgendaControllers {
     @Autowired
-    private AgendaUsuarios as;
+    private AgendaServices as;
     
     @PutMapping("/atualizar/{id}")
     public Agenda atualizar(@PathVariable Integer id, @RequestBody Agenda agenda) {
@@ -33,9 +35,9 @@ public class AgendaControllers {
     public String deletar(@PathVariable Integer id) {
         boolean deletou = as.delete(id);
         if (deletou) {
-            return "Compra cancelada com sucesso";
+            return "Agendamento cancelado com sucesso";
         }
-        return "Falha ao cancelar a compra";
+        return "Falha ao cancelar o agendamento";
     }
 
     @PostMapping("/cadastro")
