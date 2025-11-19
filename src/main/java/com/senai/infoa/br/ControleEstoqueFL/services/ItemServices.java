@@ -29,7 +29,7 @@ public class ItemServices {
 
     public boolean delete(Integer id) {
         Item item = ir.findById(id).get();
-        if(compra != null) {
+        if(item != null) {
             ir.deleteById(id);
             return true;
             

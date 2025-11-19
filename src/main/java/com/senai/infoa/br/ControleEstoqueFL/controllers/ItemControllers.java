@@ -28,20 +28,20 @@ public class ItemControllers {
 
     @PutMapping("/atualizar/{id}")
     public Item atualizar(@PathVariable Integer id, @RequestBody Item item) {
-        return is.atualizar(categoria, id);
+        return is.atualizar(item, id);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deletar(@PathVariable Integer id) {
         boolean deletou = is.delete(id);
         if (deletou) {
-            return "Compra cancelada com sucesso";
+            return "Item deletado com sucesso";
         }
-        return "Falha ao cancelar a compra";
+        return "Falha ao deletar o item";
     }
 
     @PostMapping("/cadastro")
-    public Agenda salvar(@RequestBody Agenda agenda) {
-        return as.salvar(agenda);
+    public Agenda salvar(@RequestBody Item item) {
+        return as.salvar(item);
     }
 }
