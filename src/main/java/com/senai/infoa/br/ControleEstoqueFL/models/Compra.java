@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 @Table(name = "estoque")
@@ -25,6 +27,10 @@ public class Compra extends Item{
 
     @Column(name = "preco")
     private Double preco;
+
+    @OneToOne
+    @JoinColumn(name = "compra_id", nullable = false)
+    private Compra compra;
 
     public Compra() {}
     public Compra(Integer id, String produto, Integer quantidade, String categoria) {

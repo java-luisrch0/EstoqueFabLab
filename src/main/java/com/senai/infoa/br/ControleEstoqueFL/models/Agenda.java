@@ -8,6 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
 
 
 @Entity
@@ -22,12 +24,12 @@ public class Agenda extends Usuario {
     @Column(name = "descricao")
     private String descricao;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Item_id")
-    private Item item;
+    @OneToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "agenda_id")
+    @OneToOne
+    @JoinColumn(name = "agenda_id", nullable = false)
     private Agenda agenda;
 
     public Agenda() {}

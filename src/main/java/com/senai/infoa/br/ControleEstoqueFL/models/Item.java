@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
 @Table(name = "Item")
@@ -28,10 +30,6 @@ public class Item{
     @ManyToOne
     @JoinColumn(name = "compra_id", nullable = false)
     private Compra compra;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "agenda_id")
-    private Agenda agenda;
 
     public Item() {}
 
