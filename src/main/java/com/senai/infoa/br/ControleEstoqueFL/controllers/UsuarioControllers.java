@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
 import com.senai.infoa.br.ControleEstoqueFL.services.UsuarioServices;
