@@ -22,8 +22,14 @@ public class Agenda extends Usuario {
     @Column(name = "descricao")
     private String descricao;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Item_id")
+    private Item item;
     
-    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "agenda_id")
+    private Agenda agenda;
+
     public Agenda() {}
     public Agenda(Integer id, LocalDateTime dataHora, String descricao) {
         this.id = id;

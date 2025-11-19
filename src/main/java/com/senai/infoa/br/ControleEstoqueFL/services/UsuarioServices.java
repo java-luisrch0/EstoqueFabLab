@@ -11,12 +11,14 @@ public class UsuarioServices {
     @Autowired
     private UsuarioRepositories ur;
 
-        public Usuario salvar(Usuario usuario) {
+    public Usuario salvar(Usuario usuario) {
         return ur.save(usuario);
     }
-        public Usuario buscarPorId(Integer id) {
+        
+    public Usuario buscarPorId(Integer id) {
         return ur.findById(id).get();
     }
+    
     public Usuario atualizar(Usuario usuario, Integer id) {
         Usuario u = buscarPorId(id);
         if (u != null) {
@@ -25,5 +27,23 @@ public class UsuarioServices {
         }
         return null;
     }
+
+    public boolean delete(Integer id) {
+        Usuario usuario = ur.findById(id).get();
+        if(usuario != null) {
+            ur.deleteById(id);
+            return true;
+            
+        }
+        return false;
     }
+
+    public Usuario buscarPorId(Integer id) {
+        return ur.findById(id).get();
+    }
+
+    public List<Usuario> listarTodos() {
+        return ur.findAll();
+    }
+}
 

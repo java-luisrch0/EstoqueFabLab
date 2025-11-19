@@ -21,6 +21,18 @@ public class Item{
     @Column(name = "quantidade")
     private Integer quantidade;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "compra_id", nullable = false)
+    private Compra compra;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "agenda_id")
+    private Agenda agenda;
+
     public Item() {}
 
     public Item(Integer id, String nome, String finalidade, Integer quantidade) {

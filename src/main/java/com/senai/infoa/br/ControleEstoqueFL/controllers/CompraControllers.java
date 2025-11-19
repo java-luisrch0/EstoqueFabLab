@@ -1,5 +1,49 @@
 package com.senai.infoa.br.ControleEstoqueFL.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@RestController
 public class CompraControllers {
-    
+    @Autowired
+    private CompraServices cs;
+
+    @GetMapping("/lista")
+    public List<Compra> listarTodos() {
+        return cs.listarTodos();
+    }
+
+    @GetMapping("/buscar/{id}")
+    public Compra buscarPorId(@PathVariable Integer id) {
+        return cs.buscarPorId(id);
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public Compra atualizar(@PathVariable Integer id, @RequestBody Compra compra) {
+        return cs.atualizar(compra, id);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deletar(@PathVariable Integer id) {
+        boolean deletou = cs.delete(id);
+        if (deletou) {
+            return "Compra cancelada com sucesso";
+        }
+        return "Falha ao cancelar a compra";
+    }
+
+    @PostMapping("/salvar")
+    public Compra salvar(@RequestBody Compra compra) {
+        return cs.salvar(compra);
+    }
+
+    @PostMapping("/cadastro")
+    public Agenda salvar(@RequestBody Agenda agenda) {
+        return as.salvar(agenda);
+    }
 }

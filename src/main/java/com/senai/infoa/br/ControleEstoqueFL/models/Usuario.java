@@ -27,8 +27,9 @@ public class Usuario {
     @Column(name = "senha")
     private String senha;
 
-
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Agenda_id")
+    private Agenda agenda;
 
     public Usuario() {}
 
