@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.info.Info;
     info = @Info(
         title = "Estoque do FabLab",
         version = "1.0",
-        description = "email de contato: gabril.q.pontes@aluno.senai.br"
+        description = "Gabriel Quinelato, Gabriel Teodoro, Guilherme Moraes, Kayke dos Santos, Luis Eduardo, Rafael Felipe"
     )
 )
 public class Swagger {
