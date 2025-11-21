@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
 import com.senai.infoa.br.ControleEstoqueFL.services.UsuarioServices;
 
-@RequestMapping
+@RequestMapping("/usuario")
 @RestController
 public class UsuarioControllers {
     @Autowired

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.senai.infoa.br.ControleEstoqueFL.models.Agenda;
 import com.senai.infoa.br.ControleEstoqueFL.services.AgendaServices;
 
-@RequestMapping
+@RequestMapping("/agenda")
 @RestController
 public class AgendaControllers {
     @Autowired

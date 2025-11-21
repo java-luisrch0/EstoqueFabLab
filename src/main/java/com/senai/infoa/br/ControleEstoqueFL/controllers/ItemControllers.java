@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.senai.infoa.br.ControleEstoqueFL.models.Item;
 import com.senai.infoa.br.ControleEstoqueFL.services.ItemServices;
 
-@RequestMapping
+@RequestMapping("/item")
 @RestController
 public class ItemControllers {
     @Autowired
