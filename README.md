@@ -8,7 +8,17 @@ O **Usuário** terá seu cadastro e com isso poderá escolher as quantidades de 
 
 # Membros
 Gabriel Quinelato
+
 Gabriel Teodoro
+
+Guilherme Moraes
+
 Luis Eduardo
+
 Kayke do Santos
+
 Rafael Felipe
+
+# Link Swagger
+
+Swagger: https://estoquefablab.onrender.com/controleestoquefl/swagger-ui/index.html
