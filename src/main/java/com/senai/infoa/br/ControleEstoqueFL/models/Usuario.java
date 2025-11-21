@@ -31,18 +31,18 @@ public class Usuario {
     private String senha;
 
     @OneToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
-    private Usuario usuario;
+    @JoinColumn(name = "agenda_id", nullable = false)
+    private Agenda agenda;
 
     public Usuario() {}
 
-    public Usuario(Integer id, String nome, String funcao, String email, String senha, Usuario usuario) {
+    public Usuario(Integer id, String nome, String funcao, String email, String senha, Agenda agenda) {
         this.id = id;
         this.nome = nome;
         this.funcao = funcao;
         this.email = email;
         this.senha = senha;
-        this.usuario = usuario;
+        this.agenda = agenda;
     }
 
     public Integer getId() {
@@ -85,12 +85,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Agenda getAgenda() {
+        return agenda;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
     }
     
 
