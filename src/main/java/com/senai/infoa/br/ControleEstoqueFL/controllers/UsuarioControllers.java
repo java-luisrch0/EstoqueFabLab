@@ -28,8 +28,8 @@ public class UsuarioControllers {
     }
 
     @PostMapping("/loginUsuario")
-    public Usuario login(@RequestParam String email, @RequestParam String senha) {
-        return us.login(email, senha);
+    public Usuario login(@RequestParam String email, @RequestParam String senha, @RequestParam String funcao) {
+        return us.login(email, senha, funcao);
     }
 
     @GetMapping("/lista")

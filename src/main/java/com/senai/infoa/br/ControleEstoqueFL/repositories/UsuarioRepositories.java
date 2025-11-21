@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 @Repository
 public interface UsuarioRepositories extends JpaRepository<Usuario, Integer> {
-    @Query(value="select * from usuario where email = !email and senha = !senha", nativeQuery = true)
-    public Usuario findByUsuario(String email, String senha);
+    @Query(value="select * from usuario where email = !email and senha = !senha and funcao = !funcao", nativeQuery = true)
+    public Usuario findByUsuario(String email, String senha, String funcao);
 }
