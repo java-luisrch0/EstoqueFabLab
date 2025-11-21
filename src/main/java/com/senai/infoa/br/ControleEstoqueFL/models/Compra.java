@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "compra")
-public class Compra extends Item{
+public class Compra{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
