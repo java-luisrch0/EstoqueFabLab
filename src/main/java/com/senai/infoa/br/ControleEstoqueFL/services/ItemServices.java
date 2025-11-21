@@ -1,9 +1,11 @@
 package com.senai.infoa.br.ControleEstoqueFL.services;
+import java.util.List;
 
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.senai.infoa.ControleEstoqueFL.repositories.ItemRepositories;
-import com.senai.infoa.ControleEstoqueFL.models.Item;
+import org.springframework.stereotype.Service;
+
+import com.senai.infoa.br.ControleEstoqueFL.models.Item;
+import com.senai.infoa.br.ControleEstoqueFL.repositories.ItemRepositories;
 
 @Service
 public class ItemServices {

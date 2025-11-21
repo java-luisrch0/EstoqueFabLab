@@ -7,9 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 
 @Entity
@@ -33,10 +33,12 @@ public class Agenda extends Usuario {
     private Agenda agenda;
 
     public Agenda() {}
-    public Agenda(Integer id, LocalDateTime dataHora, String descricao) {
+    public Agenda(Integer id, LocalDateTime dataHora, String descricao, Usuario usuario, Agenda agenda) {
         this.id = id;
         this.dataHora = dataHora;
         this.descricao = descricao;
+        this.usuario = usuario;
+        this.agenda = agenda;
     }
 
     public Integer getid() {
@@ -62,4 +64,17 @@ public class Agenda extends Usuario {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    public Agenda getAgenda() {
+        return agenda;
+    }
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
+    
 }

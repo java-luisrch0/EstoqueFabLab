@@ -1,9 +1,11 @@
 package com.senai.infoa.br.ControleEstoqueFL.services;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.senai.infoa.ControleEstoqueFL.repositories.AgendaRepositories;
-import com.senai.infoa.ControleEstoqueFL.models.Agenda;
+import com.senai.infoa.br.ControleEstoqueFL.repositories.AgendaRepositories;
+import com.senai.infoa.br.ControleEstoqueFL.models.Agenda;
+
+
 
 @Service
 public class AgendaServices {
@@ -32,7 +34,6 @@ public class AgendaServices {
         }
         return false;
     }
-
     public Agenda buscarPorId(Integer id) {
         return ar.findById(id).get();
     }

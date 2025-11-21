@@ -1,9 +1,11 @@
 package com.senai.infoa.br.ControleEstoqueFL.services;
+import java.util.List;
 
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.senai.infoa.ControleEstoqueFL.repositories.CompraRepositories;
-import com.senai.infoa.ControleEstoqueFL.models.Compra;
+import org.springframework.stereotype.Service;
+
+import com.senai.infoa.br.ControleEstoqueFL.models.Compra;
+import com.senai.infoa.br.ControleEstoqueFL.repositories.CompraRepositories;
 
 @Service
 public class CompraServices {
@@ -18,7 +20,7 @@ public class CompraServices {
         return cr.findById(id).get();
     }
 
-    public Compra atualizar(Compra compra, Integer id) {
+    public Compra atualizar(Integer id, Compra compra) {
         Compra e = buscarPorId(id);
         if (e != null) {
             compra.setId(id);

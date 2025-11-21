@@ -4,12 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "estoque")
+@Table(name = "compra")
 public class Compra extends Item{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,16 +29,21 @@ public class Compra extends Item{
     private Double preco;
 
     @OneToOne
-    @JoinColumn(name = "compra_id", nullable = false)
-    private Compra compra;
+    @JoinColumn(name = "item_id", nullable = false)
+    private Item item;
 
     public Compra() {}
-    public Compra(Integer id, String produto, Integer quantidade, String categoria) {
+    public Compra(Integer id, String produto, Integer quantidade, String categoria, Double preco, Item item) {
         this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
         this.categoria = categoria;
+        this.preco = preco;
+        this.item = item;
     }
+
+
+
 
 
     public Integer getid() {
@@ -79,5 +84,14 @@ public class Compra extends Item{
     public void setpreco(Double preco) {
         this.preco = preco;
     }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+    
 
 }

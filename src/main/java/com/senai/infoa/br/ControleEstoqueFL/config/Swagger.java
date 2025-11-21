@@ -1,4 +1,4 @@
-package com.senai.infoa.ControleEstoqueFL.configs;
+package com.senai.infoa.br.ControleEstoqueFL.config;
 
 import org.springframework.context.annotation.Configuration;
 
