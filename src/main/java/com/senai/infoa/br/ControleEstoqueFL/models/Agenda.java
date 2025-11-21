@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "agenda")
-public class Agenda extends Usuario {
+public class Agenda {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
@@ -29,16 +29,16 @@ public class Agenda extends Usuario {
     private Usuario usuario;
     
     @OneToOne
-    @JoinColumn(name = "agenda_id", nullable = false)
-    private Agenda agenda;
+    @JoinColumn(name = "item_id", nullable = false)
+    private Item item;
 
     public Agenda() {}
-    public Agenda(Integer id, LocalDateTime dataHora, String descricao, Usuario usuario, Agenda agenda) {
+    public Agenda(Integer id, LocalDateTime dataHora, String descricao, Usuario usuario, Item item) {
         this.id = id;
         this.dataHora = dataHora;
         this.descricao = descricao;
         this.usuario = usuario;
-        this.agenda = agenda;
+        this.item = item;
     }
 
     public Integer getid() {
@@ -70,11 +70,11 @@ public class Agenda extends Usuario {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public Agenda getAgenda() {
-        return agenda;
+    public Item getItem() {
+        return item;
     }
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
+    public void setItem(Item item) {
+        this.item = item;
     }
     
 }
