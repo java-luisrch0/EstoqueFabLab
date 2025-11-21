@@ -43,5 +43,12 @@ public class UsuarioServices {
     public List<Usuario> listarTodos() {
         return ur.findAll();
     }
+    public Usuario login(String email, String senha) {
+        Usuario usuario = ur.findByEmail(email, senha);
+        if (usuario != null && senha.equals(usuario.getSenha())) {
+            return usuario;
+        }
+        return null;
+    }
 }
 

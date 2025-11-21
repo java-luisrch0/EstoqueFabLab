@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
@@ -27,8 +28,8 @@ public class UsuarioControllers {
     }
 
     @PostMapping("/loginUsuario")
-    public Usuario login(@RequestBody Usuario usuario) {
-        return us.save(usuario);
+    public Usuario login(@RequestParam String email, @RequestParam String senha) {
+        return us.login(email, senha);
     }
 
     @GetMapping("/lista")
