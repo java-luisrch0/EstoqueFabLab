@@ -24,24 +24,28 @@ public class Item{
     private Integer quantidade;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "compra_id", nullable = false)
+    @JoinColumn(name = "compra_id")
     private Compra compra;
+    
+    @ManyToOne
+    @JoinColumn(name = "agenda_id")
+    private Agenda agenda;
 
     public Item() {}
 
-    public Item(Integer id, String nome, String finalidade, Integer quantidade, Usuario usuario, Compra compra) {
+    public Item(Integer id, String nome, String finalidade, Integer quantidade, Usuario usuario, Compra compra, Agenda agenda) {
         this.id = id;
         this.nome = nome;
         this.finalidade = finalidade;
         this.quantidade = quantidade;
         this.usuario = usuario;
         this.compra = compra;
+        this.agenda = agenda;
     }
-
     public Integer getId() {
         return id;
     }
@@ -86,6 +90,14 @@ public class Item{
 
     public void setCompra(Compra compra) {
         this.compra = compra;
+    }
+
+    public Agenda getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
     }
     
     

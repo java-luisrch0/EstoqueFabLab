@@ -6,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,10 +28,6 @@ public class Usuario {
     @Column(name = "senha")
     private String senha;
 
-    @OneToOne
-    @JoinColumn(name = "agenda_id", nullable = false)
-    private Agenda agenda;
-
     public Usuario() {}
 
     public Usuario(Integer id, String nome, String funcao, String email, String senha, Agenda agenda) {
@@ -42,7 +36,6 @@ public class Usuario {
         this.funcao = funcao;
         this.email = email;
         this.senha = senha;
-        this.agenda = agenda;
     }
 
     public Integer getId() {
@@ -84,15 +77,6 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    public Agenda getAgenda() {
-        return agenda;
-    }
-
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
-    }
-    
 
 
 

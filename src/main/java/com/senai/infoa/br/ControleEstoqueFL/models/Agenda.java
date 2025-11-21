@@ -25,20 +25,16 @@ public class Agenda {
     private String descricao;
     
     @OneToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-    
-    @OneToOne
-    @JoinColumn(name = "item_id", nullable = false)
-    private Item item;
 
     public Agenda() {}
-    public Agenda(Integer id, LocalDateTime dataHora, String descricao, Usuario usuario, Item item) {
+    public Agenda(Integer id, LocalDateTime dataHora, String descricao, Usuario usuario) {
         this.id = id;
         this.dataHora = dataHora;
         this.descricao = descricao;
         this.usuario = usuario;
-        this.item = item;
+
     }
 
     public Integer getid() {
@@ -70,11 +66,6 @@ public class Agenda {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    public Item getItem() {
-        return item;
-    }
-    public void setItem(Item item) {
-        this.item = item;
-    }
+
     
 }
