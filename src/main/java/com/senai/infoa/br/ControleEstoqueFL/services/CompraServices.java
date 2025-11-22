@@ -2,6 +2,7 @@ package com.senai.infoa.br.ControleEstoqueFL.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Compra;
@@ -16,11 +17,11 @@ public class CompraServices {
         return cr.findAll();
     }
 
-    public Compra buscarPorId(Integer id) {
+    public Compra buscarPorId(@NonNull Integer id) {
         return cr.findById(id).get();
     }
 
-    public Compra atualizar(Integer id, Compra compra) {
+    public Compra atualizar(@NonNull Integer id, @NonNull Compra compra) {
         Compra e = buscarPorId(id);
         if (e != null) {
             compra.setid(id);
@@ -29,7 +30,7 @@ public class CompraServices {
         return null;
     }
 
-    public boolean delete(Integer id) {
+    public boolean delete(@NonNull Integer id) {
         Compra compra = cr.findById(id).get();
         if(compra != null) {
             cr.deleteById(id);
@@ -39,7 +40,7 @@ public class CompraServices {
         return false;
     }
 
-    public Compra salvar(Compra compra) {
+    public Compra salvar(@NonNull Compra compra) {
         return cr.save(compra);
     }
 }

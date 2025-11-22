@@ -2,6 +2,7 @@ package com.senai.infoa.br.ControleEstoqueFL.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Agenda;
@@ -18,7 +19,7 @@ public class AgendaServices {
         return ar.findAll();
     }
 
-    public Agenda atualizar(Agenda agenda, Integer id) {
+    public Agenda atualizar(@NonNull Agenda agenda, @NonNull Integer id) {
         Agenda e = buscarPorId(id);
         if (e != null) {
             agenda.setid(id);
@@ -27,7 +28,7 @@ public class AgendaServices {
         return null;
     }
 
-    public boolean delete(Integer id) {
+    public boolean delete(@NonNull Integer id) {
         Agenda agenda = ar.findById(id).get();
         if(agenda != null) {
             ar.deleteById(id);
@@ -36,11 +37,13 @@ public class AgendaServices {
         }
         return false;
     }
-    public Agenda buscarPorId(Integer id) {
+    public Agenda buscarPorId(@NonNull Integer id) {
         return ar.findById(id).get();
     }
-
-    public Agenda salvar(Agenda agenda) {
+    
+    public Agenda salvar(@NonNull Agenda agenda) {
         return ar.save(agenda);
+
     }
+
 }

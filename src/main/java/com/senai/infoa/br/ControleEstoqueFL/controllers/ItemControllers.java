@@ -2,6 +2,7 @@ package com.senai.infoa.br.ControleEstoqueFL.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,17 +27,17 @@ public class ItemControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Item buscarPorId(@PathVariable Integer id) {
+    public Item buscarPorId(@PathVariable @NonNull Integer id) {
         return is.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Item atualizar(@PathVariable Integer id, @RequestBody Item item) {
+    public Item atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Item item) {
         return is.atualizar(item, id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable Integer id) {
+    public String deletar(@PathVariable @NonNull Integer id) {
         boolean deletou = is.delete(id);
         if (deletou) {
             return "Item deletado com sucesso";
@@ -45,7 +46,7 @@ public class ItemControllers {
     }
 
     @PostMapping("/cadastro")
-    public Item salvar(@RequestBody Item item) {
+    public Item salvar(@RequestBody @NonNull Item item) {
         return is.salvar(item);
     }
 }

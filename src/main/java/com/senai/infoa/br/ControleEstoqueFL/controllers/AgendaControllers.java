@@ -3,6 +3,7 @@ package com.senai.infoa.br.ControleEstoqueFL.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class AgendaControllers {
     private AgendaServices as;
     
     @PutMapping("/atualizar/{id}")
-    public Agenda atualizar(@PathVariable Integer id, @RequestBody Agenda agenda) {
+    public Agenda atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Agenda agenda) {
         return (Agenda) as.atualizar(agenda, id);
     }
 
@@ -32,12 +33,12 @@ public class AgendaControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Agenda buscarPorId(@PathVariable Integer id) {
+    public Agenda buscarPorId(@PathVariable @NonNull Integer id) {
         return (Agenda) as.buscarPorId(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable Integer id) {
+    public String deletar(@PathVariable @NonNull Integer id) {
         boolean deletou = as.delete(id);
         if (deletou) {
             return "Agendamento cancelado com sucesso";
@@ -46,7 +47,7 @@ public class AgendaControllers {
     }
 
     @PostMapping("/cadastro")
-    public Agenda salvar(@RequestBody Agenda agenda) {
+    public Agenda salvar(@RequestBody @NonNull Agenda agenda) {
         return (Agenda) as.salvar(agenda);
     }
 }

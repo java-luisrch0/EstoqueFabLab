@@ -3,6 +3,7 @@ package com.senai.infoa.br.ControleEstoqueFL.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
@@ -13,15 +14,15 @@ public class UsuarioServices {
     @Autowired
     private UsuarioRepositories ur;
 
-    public Usuario save(Usuario usuario) {
+    public Usuario save(@NonNull Usuario usuario) {
         return ur.save(usuario);
     }
         
-    public Usuario buscarPorId(Integer id) {
+    public Usuario buscarPorId(@NonNull Integer id) {
         return ur.findById(id).get();
     }
     
-    public Usuario atualizar(Usuario usuario, Integer id) {
+    public Usuario atualizar(@NonNull Usuario usuario, @NonNull Integer id) {
         Usuario u = buscarPorId(id);
         if (u != null) {
             usuario.setId(id);
@@ -30,7 +31,7 @@ public class UsuarioServices {
         return null;
     }
 
-    public boolean delete(Integer id) {
+    public boolean delete(@NonNull Integer id) {
         Usuario usuario = ur.findById(id).get();
         if(usuario != null) {
             ur.deleteById(id);

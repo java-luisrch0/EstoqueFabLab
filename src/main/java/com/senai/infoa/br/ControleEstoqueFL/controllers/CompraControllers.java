@@ -1,6 +1,8 @@
 package com.senai.infoa.br.ControleEstoqueFL.controllers;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,17 +28,17 @@ public class CompraControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Compra buscarPorId(@PathVariable Integer id) {
+    public Compra buscarPorId(@PathVariable @NonNull Integer id) {
         return cs.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Compra atualizar(@PathVariable Integer id, @RequestBody Compra compra) {
+    public Compra atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Compra compra) {
         return cs.atualizar(id, compra);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable Integer id) {
+    public String deletar(@PathVariable @NonNull Integer id) {
         boolean deletou = cs.delete(id);
         if (deletou) {
             return "Compra cancelada com sucesso";
@@ -45,7 +47,7 @@ public class CompraControllers {
     }
 
     @PostMapping("/salvar")
-    public Compra salvar(@RequestBody Compra compra) {
+    public Compra salvar(@RequestBody @NonNull Compra compra) {
         return cs.salvar(compra);
     }
 

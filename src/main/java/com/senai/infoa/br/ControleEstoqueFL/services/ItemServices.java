@@ -2,6 +2,7 @@ package com.senai.infoa.br.ControleEstoqueFL.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Item;
@@ -16,11 +17,11 @@ public class ItemServices {
         return ir.findAll();
     }
 
-    public Item buscarPorId(Integer id) {
+    public Item buscarPorId(@NonNull Integer id) {
         return ir.findById(id).get();
     }
 
-    public Item atualizar(Item item, Integer id) {
+    public Item atualizar(@NonNull Item item, @NonNull Integer id) {
         Item e = buscarPorId(id);
         if (e != null) {
             item.setId(id);
@@ -29,7 +30,7 @@ public class ItemServices {
         return null;
     }
 
-    public boolean delete(Integer id) {
+    public boolean delete(@NonNull Integer id) {
         Item item = ir.findById(id).get();
         if(item != null) {
             ir.deleteById(id);
@@ -39,7 +40,7 @@ public class ItemServices {
         return false;
     }
 
-    public Item salvar(Item item) {
+    public Item salvar(@NonNull Item item) {
         return ir.save(item);
     }
 }
