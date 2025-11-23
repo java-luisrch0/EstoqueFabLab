@@ -9,6 +9,6 @@ import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
 
 @Repository
 public interface UsuarioRepositories extends JpaRepository<Usuario, Integer> {
-    @Query(value="select * from usuario where email = email and senha = senha and funcao = funcao", nativeQuery = true)
+    @Query(value="select * from usuario where email = :email and senha = :senha and funcao = :funcao", nativeQuery = true)
     public Usuario findByUsuario(@Param("email") String email,@Param("senha") String senha,@Param("funcao") String funcao);
 }
