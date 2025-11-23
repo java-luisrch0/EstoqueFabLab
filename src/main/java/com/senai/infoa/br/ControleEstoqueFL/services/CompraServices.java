@@ -24,7 +24,7 @@ public class CompraServices {
     public Compra atualizar(@NonNull Integer id, @NonNull Compra compra) {
         Compra e = buscarPorId(id);
         if (e != null) {
-            compra.setid(id);
+            compra.setId(id);
             return cr.save(compra);
         }
         return null;

@@ -35,48 +35,50 @@ public class Compra{
         this.preco = preco;
     }
 
-
-
-
-
-    public Integer getid() {
+    public Integer getId() {
         return id;
     }
 
-    public void setid(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getproduto() {
+    public String getProduto() {
         return produto;
     }
 
-    public void setproduto(String produto) {
+    public void setProduto(String produto) {
         this.produto = produto;
     }
 
-    public Integer getquantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setquantidade(Integer quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 
-    public String getcategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setcategoria(String categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    public Double getpreco() {
+
+    public Double getPreco() {
         return preco;
     }
 
-    public void setpreco(Double preco) {
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
+
+
+
+
+
 
     
 
