@@ -22,7 +22,7 @@ public class AgendaServices {
     public Agenda atualizar(@NonNull Agenda agenda, @NonNull Integer id) {
         Agenda e = buscarPorId(id);
         if (e != null) {
-            agenda.setid(id);
+            agenda.setId(id);
             return ar.save(agenda);
         }
         return null;
