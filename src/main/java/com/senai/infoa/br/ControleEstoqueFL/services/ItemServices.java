@@ -13,15 +13,15 @@ public class ItemServices {
     @Autowired
     private ItemRepositories ir;
 
+
     public List<Item> listarTodos() {
         return ir.findAll();
     }
 
-    public Item buscarPorId(@NonNull Integer id) {
+    public Item buscarPorId(int id) {
         return ir.findById(id).get();
     }
-
-    public Item atualizar(@NonNull Item item, @NonNull Integer id) {
+    public Item atualizar(Item item, int id) {
         Item e = buscarPorId(id);
         if (e != null) {
             item.setId(id);
@@ -30,7 +30,7 @@ public class ItemServices {
         return null;
     }
 
-    public boolean delete(@NonNull Integer id) {
+    public boolean delete(int id) {
         Item item = ir.findById(id).get();
         if(item != null) {
             ir.deleteById(id);

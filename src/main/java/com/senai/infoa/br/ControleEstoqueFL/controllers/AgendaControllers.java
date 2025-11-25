@@ -23,7 +23,7 @@ public class AgendaControllers {
     private AgendaServices as;
     
     @PutMapping("/atualizar/{id}")
-    public Agenda atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Agenda agenda) {
+    public Agenda atualizar(@PathVariable int id, @RequestBody Agenda agenda) {
         return (Agenda) as.atualizar(agenda, id);
     }
 
@@ -33,12 +33,12 @@ public class AgendaControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Agenda buscarPorId(@PathVariable @NonNull Integer id) {
+    public Agenda buscarPorId(@PathVariable int id) {
         return (Agenda) as.buscarPorId(id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable @NonNull Integer id) {
+    public String deletar(@PathVariable int id) {
         boolean deletou = as.delete(id);
         if (deletou) {
             return "Agendamento cancelado com sucesso";

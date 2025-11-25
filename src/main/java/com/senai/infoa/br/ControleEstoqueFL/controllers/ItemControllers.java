@@ -27,17 +27,17 @@ public class ItemControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Item buscarPorId(@PathVariable @NonNull Integer id) {
+    public Item buscarPorId(@PathVariable int id) {
         return is.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Item atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Item item) {
+    public Item atualizar(@PathVariable int id, @RequestBody Item item) {
         return is.atualizar(item, id);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable @NonNull Integer id) {
+    public String deletar(@PathVariable int id) {
         boolean deletou = is.delete(id);
         if (deletou) {
             return "Item deletado com sucesso";
