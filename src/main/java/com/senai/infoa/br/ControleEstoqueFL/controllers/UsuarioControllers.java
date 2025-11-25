@@ -39,18 +39,18 @@ public class UsuarioControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Usuario buscarPorId(@PathVariable @NonNull Integer id) {
+    public Usuario buscarPorId(@PathVariable int id) {
         return us.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Usuario atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Usuario usuario) {
+    public Usuario atualizar(@PathVariable int id, @RequestBody @NonNull Usuario usuario) {
         return us.atualizar(usuario, id);
 
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable @NonNull Integer id) {
+    public String deletar(@PathVariable int id) {
         boolean deletou = us.delete(id);
         if (deletou) {
             return "Usuário removido com sucesso";

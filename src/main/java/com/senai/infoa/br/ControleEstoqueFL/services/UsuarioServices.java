@@ -18,11 +18,11 @@ public class UsuarioServices {
         return ur.save(usuario);
     }
         
-    public Usuario buscarPorId(@NonNull Integer id) {
+    public Usuario buscarPorId(int id) {
         return ur.findById(id).get();
     }
     
-    public Usuario atualizar(@NonNull Usuario usuario, @NonNull Integer id) {
+    public Usuario atualizar(@NonNull Usuario usuario, int id) {
         Usuario u = buscarPorId(id);
         if (u != null) {
             usuario.setId(id);
@@ -31,7 +31,7 @@ public class UsuarioServices {
         return null;
     }
 
-    public boolean delete(@NonNull Integer id) {
+    public boolean delete(int id) {
         Usuario usuario = ur.findById(id).get();
         if(usuario != null) {
             ur.deleteById(id);

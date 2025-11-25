@@ -17,11 +17,11 @@ public class CompraServices {
         return cr.findAll();
     }
 
-    public Compra buscarPorId(@NonNull Integer id) {
+    public Compra buscarPorId(int id) {
         return cr.findById(id).get();
     }
 
-    public Compra atualizar(@NonNull Integer id, @NonNull Compra compra) {
+    public Compra atualizar(int id, @NonNull Compra compra) {
         Compra e = buscarPorId(id);
         if (e != null) {
             compra.setId(id);
@@ -30,7 +30,7 @@ public class CompraServices {
         return null;
     }
 
-    public boolean delete(@NonNull Integer id) {
+    public boolean delete(int id) {
         Compra compra = cr.findById(id).get();
         if(compra != null) {
             cr.deleteById(id);

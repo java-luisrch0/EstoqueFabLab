@@ -28,17 +28,17 @@ public class CompraControllers {
     }
 
     @GetMapping("/buscar/{id}")
-    public Compra buscarPorId(@PathVariable @NonNull Integer id) {
+    public Compra buscarPorId(@PathVariable int id) {
         return cs.buscarPorId(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Compra atualizar(@PathVariable @NonNull Integer id, @RequestBody @NonNull Compra compra) {
+    public Compra atualizar(@PathVariable int id, @RequestBody @NonNull Compra compra) {
         return cs.atualizar(id, compra);
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deletar(@PathVariable @NonNull Integer id) {
+    public String deletar(@PathVariable int id) {
         boolean deletou = cs.delete(id);
         if (deletou) {
             return "Compra cancelada com sucesso";
