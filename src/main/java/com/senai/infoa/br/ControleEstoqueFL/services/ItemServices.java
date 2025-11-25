@@ -22,8 +22,8 @@ public class ItemServices {
         return ir.findById(id).get();
     }
     public Item atualizar(Item item, int id) {
-        Item e = buscarPorId(id);
-        if (e != null) {
+        Item i = buscarPorId(id);
+        if (i != null) {
             item.setId(id);
             return ir.save(item);
         }

@@ -20,8 +20,8 @@ public class AgendaServices {
     }
 
     public Agenda atualizar(Agenda agenda, int id) {
-        Agenda e = buscarPorId(id);
-        if (e != null) {
+        Agenda a = buscarPorId(id);
+        if (a != null) {
             agenda.setId(id);
             return ar.save(agenda);
         }
