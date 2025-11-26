@@ -19,7 +19,7 @@ public class AgendaServices {
         return ar.findAll();
     }
 
-    public Agenda atualizar(Agenda agenda, int id) {
+    public Agenda atualizar(Agenda agenda, Integer id) {
         Agenda a = buscarPorId(id);
         if (a != null) {
             agenda.setId(id);
@@ -28,7 +28,7 @@ public class AgendaServices {
         return null;
     }
 
-    public boolean delete(int id) {
+    public boolean delete(Integer id) {
         Agenda agenda = ar.findById(id).get();
         if(agenda != null) {
             ar.deleteById(id);
@@ -37,7 +37,7 @@ public class AgendaServices {
         }
         return false;
     }
-    public Agenda buscarPorId(int id) {
+    public Agenda buscarPorId(Integer id) {
         return ar.findById(id).get();
     }
     

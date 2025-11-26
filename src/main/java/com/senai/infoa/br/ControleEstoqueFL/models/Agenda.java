@@ -18,7 +18,7 @@ public class Agenda {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
     @Column(name = "descricao")
@@ -29,7 +29,7 @@ public class Agenda {
     private Usuario usuario;
 
     public Agenda() {}
-    public Agenda(int id, LocalDateTime dataHora, String descricao, Usuario usuario) {
+    public Agenda(Integer id, LocalDateTime dataHora, String descricao, Usuario usuario) {
         this.id = id;
         this.dataHora = dataHora;
         this.descricao = descricao;
@@ -37,11 +37,11 @@ public class Agenda {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
