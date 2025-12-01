@@ -26,13 +26,16 @@ public class Compra{
     @Column(name = "preco")
     private Double preco;
 
+    private String compraAntiga;
+
     public Compra() {}
-    public Compra(Integer id, String produto, Integer quantidade, String categoria, Double preco) {
+    public Compra(Integer id, String produto, Integer quantidade, String categoria, Double preco, String compraAntiga) {
         this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
         this.categoria = categoria;
         this.preco = preco;
+        this.compraAntiga = compraAntiga;
     }
 
     public Integer getId() {
@@ -74,12 +77,11 @@ public class Compra{
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-
-
-
-
-
-
-    
+    public String getCompraAntiga() {
+        return compraAntiga;
+    }
+    public void setCompraAntiga(String compraAntiga) {
+        this.compraAntiga = compraAntiga;
+    }
 
 }

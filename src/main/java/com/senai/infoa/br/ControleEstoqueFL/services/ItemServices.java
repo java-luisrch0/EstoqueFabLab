@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
+import com.senai.infoa.br.ControleEstoqueFL.models.Agenda;
+import com.senai.infoa.br.ControleEstoqueFL.models.Compra;
 import com.senai.infoa.br.ControleEstoqueFL.models.Item;
+import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
 import com.senai.infoa.br.ControleEstoqueFL.repositories.AgendaRepositories;
 import com.senai.infoa.br.ControleEstoqueFL.repositories.CompraRepositories;
 import com.senai.infoa.br.ControleEstoqueFL.repositories.ItemRepositories;
@@ -50,17 +53,23 @@ public class ItemServices {
 
     public Item salvar(@NonNull Item item) {
         
-        if (item.getUsuario() != null && item.getUsuario().getId() != null) {
-            item.setUsuario(ur.findById(item.getUsuario().getId()).orElse(null));
-        }
+        Usuario usuarioAntigo = ur.findById(item.getUsuario().getId()).orElseThrow(()-> new RuntimeException("Não existe esse usuario"));
 
-        if (item.getCompra() != null && item.getCompra().getId() != null) {
-            item.setCompra(cr.findById(item.getCompra().getId()).orElse(null));
-        }
+        Usuario usuario = new Usuario();
+        usuarioAntigo.setId(item.getUsuario().getId());
+        item.setUsuario(usuario);
 
-        if (item.getAgenda() != null && item.getAgenda().getId() != null) {
-            item.setAgenda(ar.findById(item.getAgenda().getId()).orElse(null));
-        }
+        Compra compraAntiga = cr.findById(item.getCompra().getId()).orElseThrow(()-> new RuntimeException("Não existe essa compra"));
+
+        Compra compra = new Compra();
+        compraAntiga.setId(item.getUsuario().getId());
+        item.setCompra(compra);
+
+        Agenda agendaAntiga = ar.findById(item.getAgenda().getId()).orElseThrow(()-> new RuntimeException("Não existe essa agenda"));
+
+        Agenda agenda = new Agenda();
+        agendaAntiga.setId(item.getAgenda().getId());
+        item.setAgenda(agenda);
         
         return ir.save(item);
     }
