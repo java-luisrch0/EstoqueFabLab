@@ -47,12 +47,9 @@ public class AgendaServices {
     }
     
     public Agenda salvar(@NonNull Agenda agenda) {
-        
-        Usuario usuarioAntigo = ur.findById(agenda.getUsuario().getId()).orElseThrow(()-> new RuntimeException("Não existe esse usuario"));
-
-        Usuario usuario = new Usuario();
-        usuarioAntigo.setId(agenda.getUsuario().getId());
-        agenda.setUsuario(usuario);
+    
+        Usuario usuario = ur.getReferenceById(agenda.getUsuario().getId());
+    agenda.setUsuario(usuario);
         
         
         return ar.save(agenda);
