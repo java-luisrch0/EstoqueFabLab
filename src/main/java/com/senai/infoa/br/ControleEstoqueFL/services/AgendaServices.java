@@ -6,7 +6,10 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.br.ControleEstoqueFL.models.Agenda;
+import com.senai.infoa.br.ControleEstoqueFL.models.Usuario;
 import com.senai.infoa.br.ControleEstoqueFL.repositories.AgendaRepositories;
+import com.senai.infoa.br.ControleEstoqueFL.repositories.UsuarioRepositories;
+
 
 
 
@@ -14,6 +17,8 @@ import com.senai.infoa.br.ControleEstoqueFL.repositories.AgendaRepositories;
 public class AgendaServices {
     @Autowired
     private AgendaRepositories ar;
+    @Autowired 
+    private UsuarioRepositories ur;
 
     public List<Agenda> listarTodos() {
         return ar.findAll();
@@ -42,6 +47,14 @@ public class AgendaServices {
     }
     
     public Agenda salvar(@NonNull Agenda agenda) {
+        
+        Usuario usuarioAntigo = ur.findById(agenda.getUsuario().getId()).orElseThrow(()-> new RuntimeException("Não existe esse usuario"));
+
+        Usuario usuario = new Usuario();
+        usuarioAntigo.setId(agenda.getUsuario().getId());
+        agenda.setUsuario(usuario);
+        
+        
         return ar.save(agenda);
     }
 
