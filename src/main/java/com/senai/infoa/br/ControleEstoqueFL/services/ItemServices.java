@@ -62,7 +62,7 @@ public class ItemServices {
         Compra compraAntiga = cr.findById(item.getCompra().getId()).orElseThrow(()-> new RuntimeException("Não existe essa compra"));
 
         Compra compra = new Compra();
-        compraAntiga.setId(item.getUsuario().getId());
+        compraAntiga.setId(item.getCompra().getId());
         item.setCompra(compra);
 
         Agenda agendaAntiga = ar.findById(item.getAgenda().getId()).orElseThrow(()-> new RuntimeException("Não existe essa agenda"));
