@@ -52,25 +52,19 @@ public class ItemServices {
     }
 
     public Item salvar(@NonNull Item item) {
-        
-        Usuario usuarioAntigo = ur.findById(item.getUsuario().getId()).orElseThrow(()-> new RuntimeException("Não existe esse usuario"));
 
-        Usuario usuario = new Usuario();
-        usuarioAntigo.setId(item.getUsuario().getId());
-        item.setUsuario(usuario);
+    
+    Usuario usuario = ur.getReferenceById(item.getUsuario().getId());
+    item.setUsuario(usuario);
 
-        Compra compraAntiga = cr.findById(item.getCompra().getId()).orElseThrow(()-> new RuntimeException("Não existe essa compra"));
+    
+    Compra compra = cr.getReferenceById(item.getCompra().getId());
+    item.setCompra(compra);
 
-        Compra compra = new Compra();
-        compraAntiga.setId(item.getCompra().getId());
-        item.setCompra(compra);
+    
+    Agenda agenda = ar.getReferenceById(item.getAgenda().getId());
+    item.setAgenda(agenda);
 
-        Agenda agendaAntiga = ar.findById(item.getAgenda().getId()).orElseThrow(()-> new RuntimeException("Não existe essa agenda"));
-
-        Agenda agenda = new Agenda();
-        agendaAntiga.setId(item.getAgenda().getId());
-        item.setAgenda(agenda);
-        
-        return ir.save(item);
+    return ir.save(item);
     }
 }
