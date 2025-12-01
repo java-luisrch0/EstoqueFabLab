@@ -22,3 +22,7 @@ Rafael Felipe
 # Link Swagger
 
 Swagger: https://estoquefablab.onrender.com/controleestoquefl/swagger-ui/index.html
+
+Documentação: https://docs.google.com/document/d/1_cRSeASt0-94lE9vZc_x4eMY7r0yBdSeIEFr5Ghqkhg/edit?usp=sharing
+
+Canva: https://www.canva.com/design/DAG6FQLmWgQ/xCjZEJA773AiV1wYArbcvQ/view?utm_content=DAG6FQLmWgQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h923af73ca5
